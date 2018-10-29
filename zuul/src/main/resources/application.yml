@@ -1,0 +1,20 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+zuul:
+  routes:
+    customer:
+      path: /customer/**
+      url: http://localhost:8002/customer
+    admin:
+      path: /admin/**
+      url: http://localhost:8003/admin
