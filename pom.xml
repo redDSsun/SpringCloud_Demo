@@ -18,7 +18,10 @@
 
     <modules>
         <module>eureka_server</module>
-        <module>eureka-client</module>
+        <module>eureka_client_admin</module>
+        <module>eureka_client_customer</module>
+        <module>gateway</module>
+        <module>zuul</module>
     </modules>
 
 
@@ -33,7 +36,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR5</version>
+                <version>Finchley.SR2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
