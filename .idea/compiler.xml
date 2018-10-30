@@ -9,6 +9,7 @@
         <module name="eureka-client" />
         <module name="eureka-client_customer" />
         <module name="eureka_client_admin" />
+        <module name="eureka_client_admin_second" />
         <module name="eureka_client_customer" />
         <module name="eureka_server" />
         <module name="gateway" />
@@ -19,6 +20,7 @@
       <module name="eureka-client" target="1.8" />
       <module name="eureka-client_customer" target="1.8" />
       <module name="eureka_client_admin" target="1.8" />
+      <module name="eureka_client_admin_second" target="1.8" />
       <module name="eureka_client_customer" target="1.8" />
       <module name="eureka_server" target="1.8" />
       <module name="gateway" target="1.8" />

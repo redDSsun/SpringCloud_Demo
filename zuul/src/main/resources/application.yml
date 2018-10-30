@@ -17,4 +17,23 @@ zuul:
       url: http://localhost:8002/customer
     admin:
       path: /admin/**
-      url: http://localhost:8003/admin
+      serviceId: client_server_admin
+      stripPrefix: false
+
+ribbon:
+  eureka:
+    enabled: true
+
+
+client_server_admin:
+  ribbon:
+    listOfServers: http://localhost:8003/admin, http://localhost:8006/admin
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
