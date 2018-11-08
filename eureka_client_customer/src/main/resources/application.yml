@@ -5,7 +5,18 @@ spring:
   application:
     name: client_server_customer
 
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8001/eureka/
+    fetch-registry: false
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
