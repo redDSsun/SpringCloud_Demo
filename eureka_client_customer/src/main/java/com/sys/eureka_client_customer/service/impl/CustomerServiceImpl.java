@@ -6,6 +6,9 @@ import com.sys.eureka_client_customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -26,5 +29,25 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public boolean modifycustomer(Customer customer) {
         return customerMapper.modifyCustomer(customer) > 0;
+    }
+
+    @Override
+    public List<Customer> getCustomerList(int page, int totalNum) {
+
+        new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("this is thread!!");
+                customerMapper.getCustomerList(page,totalNum);
+            }
+        };
+
+        int startNum = ( page - 1 ) * totalNum;
+        return customerMapper.getCustomerList(startNum,totalNum);
+    }
+
+    @Override
+    public boolean deleteCustomer(int id) {
+        return customerMapper.deleteCustomer(id) > 0;
     }
 }

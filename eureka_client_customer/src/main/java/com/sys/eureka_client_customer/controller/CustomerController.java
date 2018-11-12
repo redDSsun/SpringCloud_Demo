@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -50,4 +51,17 @@ public class CustomerController {
         customer.setId(id);
         return customerService.modifycustomer(customer);
     }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public List<Customer> getCustomerList(HttpServletRequest request){
+        int page  = Integer.parseInt(request.getHeader("page"));
+        int totalNum = Integer.parseInt(request.getHeader("totalNum"));
+        return customerService.getCustomerList(page,totalNum);
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public boolean deleteCustomer(@PathVariable("id") int id){
+        return customerService.deleteCustomer(id);
+    }
+
 }
